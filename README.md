@@ -1,6 +1,6 @@
 # Welcome to the Cat Sitter Pro project!
 
-The primary objective of this project is to allow the user to receive a sitting quote once they have entered the dates and selected the service that suits their needs.
+The primary objective of this project is to allow the user to receive a pet sitting quote once they have entered the dates and selected the service that suits their needs.
 
 
 ```
