@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Sitter Pro</title>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body>
+<header><h1>Welcome to Cat Sitter Pro - Pet Sitter Registration</h1></header>
+<h2>Please enter your details to register as a pet sitter</h2>
+
+<form method="post" action="/register" onsubmit="return validateRegistration()">
+  <label for="fullName">Full Name: <input type="text" id="fullName" name="fullName" required></label><br>
+  <label for="email">Email: <input type="email" id="email" name="email" required></label><br>
+  <label for="phone">Phone Number: <input type="tel" id="phone" name="phone" pattern="[0-9]+" title="Please enter only digits" required></label><br>
+  <label for="experience">Experience (years): <input type="number" id="experience" name="experience" required></label><br>
+
+  <label class="radio-group" for="availability">Availability:</label><br>
+  <div class="radio-group">
+    <!-- Monday -->
+    <input type="radio" id="mondayFullDay" class="radio-button" name="availabilityMonday" value="FullDay" checked>
+    <label for="mondayFullDay" class="radio-label">Monday Full Day</label>
+    <input type="radio" id="mondayMorning" class="radio-button" name="availabilityMonday" value="HalfDay">
+    <label for="mondayMorning" class="radio-label">Monday Morning</label>
+    <input type="radio" id="mondayAfternoon" class="radio-button" name="availabilityMonday" value="HalfDay">
+    <label for="mondayAfternoon" class="radio-label">Monday Afternoon</label><br>
+
+    <!-- Tuesday -->
+    <input type="radio" id="tuesdayFullDay" class="radio-button" name="availabilityTuesday" value="FullDay" checked>
+    <label for="tuesdayFullDay" class="radio-label">Tuesday Full Day</label>
+    <input type="radio" id="tuesdayMorning" class="radio-button" name="availabilityTuesday" value="HalfDay">
+    <label for="tuesdayMorning" class="radio-label">Tuesday Morning</label>
+    <input type="radio" id="tuesdayAfternoon" class="radio-button" name="availabilityTuesday" value="HalfDay">
+    <label for="tuesdayAfternoon" class="radio-label">Tuesday Afternoon</label><br>
+
+    <!-- Wednesday -->
+    <input type="radio" id="wedFullDay" class="radio-button" name="availabilityWed" value="FullDay" checked>
+    <label for="wedFullDay" class="radio-label">Wednesday Full Day</label>
+    <input type="radio" id="wedMorning" class="radio-button" name="availabilityWed" value="HalfDay">
+    <label for="wedMorning" class="radio-label">Wednesday Morning</label>
+    <input type="radio" id="wedAfternoon" class="radio-button" name="availabilityWed" value="HalfDay">
+    <label for="wedAfternoon" class="radio-label">Wednesday Afternoon</label><br>
+
+    <!-- Thursday -->
+    <input type="radio" id="thursdayFullDay" class="radio-button" name="availabilityThursday" value="FullDay" checked>
+    <label for="thursdayFullDay" class="radio-label">Thursday Full Day</label>
+    <input type="radio" id="thursdayMorning" class="radio-button" name="availabilityThursday" value="HalfDay">
+    <label for="thursdayMorning" class="radio-label">Thursday Morning</label>
+    <input type="radio" id="thursdayAfternoon" class="radio-button" name="availabilityThursday" value="HalfDay">
+    <label for="thursdayAfternoon" class="radio-label">Thursday Afternoon</label><br>
+
+    <!-- Friday -->
+    <input type="radio" id="fridayFullDay" class="radio-button" name="availabilityFriday" value="FullDay" checked>
+    <label for="fridayFullDay" class="radio-label">Friday Full Day</label>
+    <input type="radio" id="fridayMorning" class="radio-button" name="availabilityFriday" value="HalfDay">
+    <label for="fridayMorning" class="radio-label">Friday Morning</label>
+    <input type="radio" id="fridayAfternoon" class="radio-button" name="availabilityFriday" value="HalfDay">
+    <label for="fridayAfternoon" class="radio-label">Friday Afternoon</label><br>
+
+    <!-- Saturday -->
+    <input type="radio" id="SatFullDay" class="radio-button" name="availabilitySat" value="FullDay" checked>
+    <label for="SatFullDay" class="radio-label">Saturday Full Day</label>
+    <input type="radio" id="satMorning" class="radio-button" name="availabilitySat" value="HalfDay">
+    <label for="satMorning" class="radio-label">Saturday Morning</label>
+    <input type="radio" id="satAfternoon" class="radio-button" name="availabilitySat" value="HalfDay">
+    <label for="satAfternoon" class="radio-label">Saturday Afternoon</label><br>
+
+    <!-- Sunday -->
+    <input type="radio" id="sundayFullDay" class="radio-button" name="availabilitySunday" value="FullDay" checked>
+    <label for="sundayFullDay" class="radio-label">Sunday Full Day</label>
+    <input type="radio" id="sundayMorning" class="radio-button" name="availabilitySunday" value="HalfDay">
+    <label for="sundayMorning" class="radio-label">Sunday Morning</label>
+    <input type="radio" id="sundayAfternoon" class="radio-button" name="availabilitySunday" value="HalfDay">
+    <label for="sundayAfternoon" class="radio-label">Sunday Afternoon</label><br>
+  </div>
+
+  <label for="additionalInfo">Additional Information: <textarea id="additionalInfo" name="additionalInfo"></textarea></label><br>
+  <button type="submit">Register</button>
+  <button type="button" onclick="goBack()">Return</button>
+</form>
+
+<script>
+  function goBack() {
+      window.history.back();
+  }
+
+  function validateRegistration() {
+      return true;
+  }
+</script>
+
+<footer> <h3>Cat Sitter Pro - 2024 </h3></footer>
+</body>
+</html>

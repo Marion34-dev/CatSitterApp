@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Sitter Pro</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <script th:inline="javascript">
+        function handleRateSelection(checkboxId) {
+            const checkboxes = ['rate1', 'rate2', 'rate3', 'rate4'];
+
+            checkboxes.forEach((checkbox) => {
+                if (checkbox !== checkboxId) {
+                    document.getElementById(checkbox).checked = false;
+                }
+            });
+        }
+
+        function validateDates() {
+            var startDate = document.getElementById('startDate').value;
+            var endDate = document.getElementById('endDate').value;
+            var today = /*[[${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}]]*/;
+
+            if (!startDate) {
+                alert('Please select a start date.');
+                return false; // Prevent form submission
+            }
+
+            if (startDate < today) {
+                alert('Start date cannot be before today.');
+                return false;
+            }
+
+            if (startDate && endDate && new Date(endDate) <= new Date(startDate)) {
+                alert('End date must be later than the start date.');
+                document.getElementById('endDate').value = ''; // Reset the end date
+                return false;
+            }
+            return true; // Allow form submission
+        }
+    </script>
+</head>
+
+<body>
+<header><h1>Welcome to Cat Sitter Pro! - Cat Sitter Booking</h1></header>
+<h1>Please fill in the form below to get your quote</h1>
+
+<form action="/quote" method="post" onsubmit="return validateDates()">
+    <label for="startDate">Start Date: <input type="date" id="startDate" name="startDate" required></label><br>
+    <label for="endDate">End Date: <input type="date" id="endDate" name="endDate" required></label><br>
+    <label for="rate1">One visit a day: <input type="radio" id="rate1" name="rate1" value="option1" onchange="handleRateSelection('rate1')"></label><br>
+    <label for="rate2">Two visits a day: <input type="radio" id="rate2" name="rate2" value="option2" onchange="handleRateSelection('rate2')"></label><br>
+    <label for="rate3">Onboarding: <input type="radio" id="rate3" name="rate3" value="option3" onchange="handleRateSelection('rate3')"></label><br>
+    <label for="rate4">Overnight stay at your cat's home: <input type="radio" id="rate4" name="rate4" value="option4" onchange="handleRateSelection('rate4')"></label><br>
+    <button type="submit">Submit</button>
+    <button type="button" onclick="goBack()">Return</button>
+</form>
+
+<script th:inline="javascript">
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+<footer><h3>Cat Sitter Pro - 2024</h3></footer>
+</body>
+</html>

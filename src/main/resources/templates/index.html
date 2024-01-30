@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Sitter Pro</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<header><h1>Welcome to Cat Sitter Pro!</h1></header>
+<h1>Please select the option that applies to you</h1>
+
+<div>
+<button type="button" onclick="handleButtonClick('option1')">I need a cat sitter</button>
+<button type="button" onclick="handleButtonClick('option2')">I am a cat sitter</button>
+</div>
+
+<footer><h3>Cat Sitter Pro - 2024</h3></footer>
+
+<script>
+    function handleButtonClick(option) {
+        if (option === 'option1') {
+            window.location.href = '/booking';
+        } else if (option === 'option2') {
+            window.location.href = '/register';
+        }
+    }
+</script>
+
+</body>
+</html>

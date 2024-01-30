@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Sitter Pro</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body>
+<header><h1>Welcome to Cat Sitter Pro!</h1></header>
+<h1>Here's your quote</h1>
+<h3>Your quote from [[${startDate}]] to [[${endDate}]] for [[${selectedRate}]] is of: £[[${quote}]].</h3>
+<br>
+
+<button type="button" onclick="goBack()">Return</button>
+<button type="button" onclick="acceptQuote()">Accept Quote</button>
+<a th:href="@{/}" class="button">Back to Home</a>
+
+<div id="bookingMessage"></div>
+
+<script th:inline="javascript">
+    function goBack() {
+        window.history.back();
+    }
+
+    function acceptQuote() {
+        var messageDiv = document.getElementById('bookingMessage');
+        messageDiv.innerHTML = '<p>Your cat sitter has been successfully booked!</p>';
+    }
+</script>
+
+<footer><h3>Cat Sitter Pro - 2024</h3></footer>
+</body>
+</html>
